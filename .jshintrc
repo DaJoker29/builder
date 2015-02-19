@@ -12,5 +12,6 @@
     "strict": true,
     "undef": true,
     "unused": true,
-    "browser": true
+    "browser": true,
+    "node": true
 }
