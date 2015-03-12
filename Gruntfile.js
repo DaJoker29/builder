@@ -55,17 +55,17 @@ module.exports = function(grunt) {
         },
         jshint: {
             options: {
-                "bitwise": true,
-                "camelcase": true,
-                "curly": true,
-                "eqeqeq": true,
-                "eqnull": true,
-                "expr": true,
-                "immed": true,
-                "newcap": true,
-                "noarg": true,
-                "quotmark": true,
-                "browser": true
+                'bitwise': true,
+                'camelcase': true,
+                'curly': true,
+                'eqeqeq': true,
+                'eqnull': true,
+                'expr': true,
+                'immed': true,
+                'newcap': true,
+                'noarg': true,
+                'quotmark': true,
+                'browser': true
             },
             src: ['src/js/**/*.js'],
             config: ['Gruntfile.js', 'package.json']
