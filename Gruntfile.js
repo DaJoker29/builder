@@ -65,7 +65,6 @@ module.exports = function(grunt) {
                 "newcap": true,
                 "noarg": true,
                 "quotmark": true,
-                "strict": true,
                 "browser": true
             },
             src: ['src/js/**/*.js'],
