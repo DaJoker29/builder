@@ -9,8 +9,8 @@ module.exports = function(grunt) {
                 files: ['src/js/**/*.js'],
                 tasks: ['jshint', 'uglify:dev']
             },
-            php: {
-                files: ['src/php/**/*.php'],
+            templates: {
+                files: ['src/templates/**/*.*'],
                 tasks: ['copy']
             },
             livereload: {
@@ -90,9 +90,9 @@ module.exports = function(grunt) {
             }
         },
         copy: {
-            php: {
-                cwd: 'src/php',
-                src: ['**/*.php', '!**/_*.php'],
+            templates: {
+                cwd: 'src/templates',
+                src: ['**/*.*', '!**/_*.*'],
                 dest: 'public',
                 expand: true
             }
