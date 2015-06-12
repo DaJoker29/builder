@@ -51,7 +51,12 @@ module.exports = function(grunt) {
                 }
             }
         },
-        autoprefixer: {
+        postcss: {
+            options: {
+                processors: [
+                    require('autoprefixer-core')({browsers: 'last 2 versions'})
+                ]
+            },
             dev: {
                 src: 'dist/style.css',
                 map: true
@@ -120,7 +125,7 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('dev', 'Build development version of project', ['clean', 'copy', 'jshint', 'uglify:dev', 'sass:dev', 'autoprefixer:dev']);
-    grunt.registerTask('prod', 'Build production version of project', ['clean', 'copy', 'jshint', 'uglify:prod', 'sass:prod', 'autoprefixer:prod']);
+    grunt.registerTask('dev', 'Build development version of project', ['clean', 'copy', 'jshint', 'uglify:dev', 'sass:dev', 'postcss:dev']);
+    grunt.registerTask('prod', 'Build production version of project', ['clean', 'copy', 'jshint', 'uglify:prod', 'sass:prod', 'postcss:prod']);
     grunt.registerTask('default', 'Build development version and run watch server', ['dev', 'watch']);
 };
