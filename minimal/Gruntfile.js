@@ -13,7 +13,15 @@ module.exports = function(grunt) {
             },
             templates: {
                 files: ['src/templates/**/*.*'],
-                tasks: ['copy']
+                tasks: ['copy:templates']
+            },
+            img: {
+                files: ['img/**/*'],
+                tasks: ['copy:img']
+            },
+            vendor: {
+                files: ['vendor/**/*'],
+                tasks: ['copy:vendor']
             },
             livereload: {
                 options: { livereload: true },
@@ -95,6 +103,18 @@ module.exports = function(grunt) {
                 cwd: 'src/templates',
                 src: ['**/*.*', '!**/_*.*'],
                 dest: 'dist',
+                expand: true
+            },
+            img: {
+                cwd: 'img',
+                src: ['**/*.*', '!**/_*.*'],
+                dest: 'dist/img',
+                expand: true
+            },
+            vendor: {
+                cwd: 'vendor',
+                src: ['**/*.*', '!**/_*.*'],
+                dest: 'dist/vendor',
                 expand: true
             }
         }
