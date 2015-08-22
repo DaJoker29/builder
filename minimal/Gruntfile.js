@@ -106,6 +106,9 @@ module.exports = function(grunt) {
                 dest: 'dist/vendor',
                 expand: true
             }
+        },
+        eslint: {
+            target: ['src/js/**/*.js']
         }
     });
 
