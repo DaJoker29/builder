@@ -1,5 +1,5 @@
-# (PROJECT TITLE)
-##### (PROJECT DESCRIPTION)
+# {{ Project Title}}
+{{ Project Description }}
 
 Build Instructions
 -------------------
@@ -22,8 +22,3 @@ grunt dev
 > Production is compressed and uglified. Development is uncompressed with sourcemaps.
 
 > *Default `grunt` command will build development version and launch `grunt watch` to jump straight into coding*
-
-Usage
----------------------
-
-(USAGE INSTRUCTIONS)
