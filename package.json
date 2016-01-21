@@ -1,6 +1,6 @@
 {
   "name": "bob",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Project builder to allow me to quickly build up skeletons using my commmonly used tools and templates.",
   "main": "index.js",
   "scripts": {
