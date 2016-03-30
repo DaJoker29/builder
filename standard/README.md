@@ -1,5 +1,4 @@
 # {{ Project Title}}
-{{ Project Description }}
 
 Build Instructions
 -------------------
@@ -13,12 +12,9 @@ npm install
 Next, use [Grunt](http://gruntjs.com/) to build project
 
 ```
-grunt prod
+grunt build
 ```
-**-- or --**
-```
-grunt dev
-```
+
 > Production is compressed and uglified. Development is uncompressed with sourcemaps.
 
-> *Default `grunt` command will build development version and launch `grunt watch` to jump straight into coding*
+> *Default `grunt` command will build current project and launch `grunt watch` to jump straight into coding*

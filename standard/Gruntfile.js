@@ -5,23 +5,11 @@ module.exports = function(grunt) {
         watch: {
             sass: {
                 files: ['src/scss/**/*.scss'],
-                tasks: ['sass:dev', 'postcss:dev']
+                tasks: ['sass', 'postcss']
             },
             js: {
                 files: ['src/js/**/*.js'],
-                tasks: ['eslint', 'uglify:dev']
-            },
-            templates: {
-                files: ['src/templates/**/*.*'],
-                tasks: ['copy:templates']
-            },
-            img: {
-                files: ['img/**/*'],
-                tasks: ['copy:img']
-            },
-            vendor: {
-                files: ['vendor/**/*'],
-                tasks: ['copy:vendor']
+                tasks: ['eslint', 'uglify']
             },
             livereload: {
                 options: { livereload: true },
@@ -36,7 +24,8 @@ module.exports = function(grunt) {
                 dest: 'dist',
                 ext: '.css',
                 options: {
-                    style: 'expanded'
+                    style: 'expanded',
+                    sourcemap: 'none'
                 }
             },
             prod: {
@@ -44,10 +33,9 @@ module.exports = function(grunt) {
                 cwd: 'src/scss',
                 src: ['**/*.scss'],
                 dest: 'dist',
-                ext: '.css',
+                ext: '.min.css',
                 options: {
-                    style: 'compressed',
-                    sourcemap: 'none'
+                    style: 'compressed'
                 }
             }
         },
@@ -62,11 +50,8 @@ module.exports = function(grunt) {
                 map: true
             },
             prod: {
-                src: 'dist/style.css'
+                src: 'dist/style.min.css'
             }
-        },
-        clean: {
-            all: ['dist/']
         },
         uglify: {
             dev: {
@@ -83,28 +68,8 @@ module.exports = function(grunt) {
             },
             prod: {
                 files: {
-                    'dist/script.js': ['src/js/**/*.js']
+                    'dist/script.min.js': ['src/js/**/*.js']
                 }
-            }
-        },
-        copy: {
-            templates: {
-                cwd: 'src/templates',
-                src: ['**/*.*', '!**/_*.*'],
-                dest: 'dist',
-                expand: true
-            },
-            img: {
-                cwd: 'img',
-                src: ['**/*.*', '!**/_*.*'],
-                dest: 'dist/img',
-                expand: true
-            },
-            vendor: {
-                cwd: 'vendor',
-                src: ['**/*.*', '!**/_*.*'],
-                dest: 'dist/vendor',
-                expand: true
             }
         },
         eslint: {
@@ -112,7 +77,5 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('dev', 'Build development version of project', ['clean', 'copy', 'eslint', 'uglify:dev', 'sass:dev', 'postcss:dev']);
-    grunt.registerTask('prod', 'Build production version of project', ['clean', 'copy', 'eslint', 'uglify:prod', 'sass:prod', 'postcss:prod']);
-    grunt.registerTask('default', 'Build development version and run watch server', ['dev', 'watch']);
+    grunt.registerTask('default', 'Build development version and run watch server', ['eslint', 'uglify', 'sass', 'postcss']);
 };
